@@ -22,17 +22,18 @@
     <div id="map"></div>
     <script>
       var locations = [
-        ["Arc de Triomphe", 3.87320075, 43.61100267],
-        ["Triangle", 3.88184418, 43.60923384]
+        { name: "Arc de Triomphe", lat: 3.87320075, lng: 43.61100267 },
+        { name: "Triangle", lat: 3.88184418, lng: 43.60923384 }
       ];
+
       var map = L.map('map').setView([3.87019117, 43.61224494], 14);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
-      for (var i = 0; i < locations.length; i++) {
-        var location = locations[i];
-        L.marker([location[1], location[2]]).addTo(map).bindPopup(location[0]);
-      }
+
+      locations.forEach(function(location) {
+        L.marker([location.lat, location.lng]).addTo(map).bindPopup(location.name);
+      });
     </script>
   </body>
 </html>
