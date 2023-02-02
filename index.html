@@ -19,11 +19,10 @@
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
+
+      var marker = L.marker([43.608142, 3.881041]).addTo(map);
+      marker.bindPopup("Parking at Le Corum").openPopup();
     </script>
   </body>
 </html>
-This code uses the Leaflet JavaScript library to display the map and the OpenStreetMap tile server to provide the map tiles. You can adjust the initial view of the map by changing the coordinates and zoom level passed to setView().
-
-
-
 
