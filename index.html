@@ -22,7 +22,7 @@
     <div id="map"></div>
     <script>
       var locations = [
-        ["Arc de Triomphe", 3.87320075, 43.61100267],
+      ["Arc de Triomphe", 3.87320075, 43.61100267],
         ["Triangle", 3.88184418, 43.60923384],
         ["Pitot", 3.87019117, 43.61224494],
         ["Arceaux", 3.86749067, 43.61171647],
@@ -61,14 +61,15 @@
         ["Végapolis", 3.91477371, 43.602896510000001],
         ["Multiplexe", 3.91411076, 43.604152429999999],
         ["La Mantilla", 3.90239994, 43.598772959999998]
-    ];
-    
-    for (var i = 0; i < locations.length; i++) {
-        marker = new L.marker([locations[i][1], locations[i][2]])
-            .bindPopup(locations[i][0])
-            .addTo(map);
-    }
-
-</script>
-</body>
+      ];
+      var map = L.map('map').setView([3.87019117, 43.61224494], 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      for (var i = 0; i < locations.length; i++) {
+        var location = locations[i];
+        L.marker([location[1], location[2]]).addTo(map).bindPopup(location[0]);
+      }
+    </script>
+  </body>
 </html>
