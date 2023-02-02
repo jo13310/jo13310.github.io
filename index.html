@@ -1,28 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenStreetMap of Montpellier</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <title>OpenStreetMap Montpellier</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <style>
       #map {
-        width: 100%;
-        height: 500px;
+        height: 100%;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
       }
     </style>
   </head>
   <body>
-    <h1>OpenStreetMap of Montpellier</h1>
     <div id="map"></div>
     <script>
-      var map = L.map('map').setView([43.610769, 3.876716], 13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      var marker = L.marker([43.608142, 3.881041]).addTo(map);
-      marker.bindPopup("Parking at Le Corum").openPopup();
-    </script>
-  </body>
-</html>
-
+      var locations = [
+        ["Arc de Triomphe", 3.87320075, 43.61100267],
+        ["Triangle", 3.88184418, 43.60923384],
+        ["Pitot", 3.87019117, 43.61224494],
+        ["Arceaux", 3.86749067, 43.61171647],
+        ["Gambetta", 3.87137436, 43.60695138],
+        ["Foch Préfecture", 3.87657084, 43.61074912],
+        ["Comédie", 3.87976196, 43.60856092],
+        ["Polygone", 3.88476539, 43.60837096],
+        ["Antigone", 3.88881893, 43.60871606],
+        ["Europa", 3.89253074, 43.60784971],
+        ["Corum", 3.88225773, 43.61388821],
+        ["Saint Roch", 3.87855072, 43.60329149],
+        ["Peyrou", 3.87038378, 43.61129700],
+        ["Hôtel de ville", 3.89585327, 43.59923100],
+        ["Circé Odysseum", 3.91784950, 43.60495377],
+        ["Jacou", 3.91288475, 43.65459870],
+        ["Georges Pompidou", 3.92108419, 43.64933920],
+        ["Via Domitia", 3.92953808, 43.64665801],
+        ["Via Domitia", 3.92953808, 43.64665801],
+        ["Notre Dame de Sablassou", 3.92229536, 43.63419194],
+        ["Charles de Gaulle", 3.8977621, 43.62854211999999],
+        ["Garcia Lorca", 3.8907158, 43.590985089999997],
+        ["Sabines", 3.8602246, 43.583832630000003],
+        ["Mosson", 3.81966554, 43.616237159999997],
+        ["Euromédecine", 3.82772365, 43.63895359],
+        ["Occitanie", 3.84859796, 43.634562320000001],
+        ["Juvignac", 3.80962186, 43.61740374],
+        ["Saint-Jean-de-Védas Centre", 3.83058552, 43.574962790000001],
+        ["Saint-Jean-le-Sec", 3.8379312, 43.570822249999999],
+        ["Lattes", 3.90481762, 43.570809879999999],
+        ["Parc expo", 3.94567852, 43.572910210000003],
+        ["Pérols centre", 3.95735556, 43.56537857],
+        ["Décathlon", 3.92380038, 43.606185590000003],
+        ["Ikéa", 3.92558256, 43.604609619999998],
+        ["Géant Casino", 3.92210413, 43.603155600000001],
+        ["Mare Nostrum", 3.91901514, 43.602370800000003],
+        ["Végapolis", 3.91477371, 43.602896510000001],
+        ["Multiplexe", 3.91411076, 43.604152429999999],
+        ["La Mantilla", 3.90239994, 43.598772959999998]
+    ];
+    
+    for (var i = 0; i < locations.length; i++) {
+        marker = new L.marker([locations[i][1], locations[i][2]])
+            .bindPopup(locations[i][0])
+            .addTo(map);
+    }
+;
