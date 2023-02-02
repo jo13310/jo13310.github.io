@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>Je suis un test 2.</p>
-</body>
+  <head>
+    <title>OpenStreetMap of Montpellier</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <style>
+      #map {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OpenStreetMap of Montpellier</h1>
+    <div id="map"></div>
+    <script>
+      var map = L.map('map').setView([43.610769, 3.876716], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    </script>
+  </body>
 </html>
+This code uses the Leaflet JavaScript library to display the map and the OpenStreetMap tile server to provide the map tiles. You can adjust the initial view of the map by changing the coordinates and zoom level passed to setView().
+
+
+
+
